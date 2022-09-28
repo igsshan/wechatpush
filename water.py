@@ -28,7 +28,7 @@ chp = get_words()
 client = WeChatClient(app_id, app_secret)
 
 data = {
-    "content": {"value": chp, "color": get_random_color()}
+    "chp": {"value": chp, "color": get_random_color()}
 }
 
 wm = WeChatMessage(client)
