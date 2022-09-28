@@ -1,4 +1,5 @@
 import math
+import random
 from datetime import datetime
 
 import requests
@@ -11,7 +12,7 @@ print(str_p)
 year = today.strftime("%Y")
 month = today.strftime("%m")
 day = today.strftime("%d")
-print(year + "年" + month + "月" + day + "日")
+print(month + "月" + day + "日")
 
 week_list = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
 week = week_list[today.weekday()]
@@ -59,3 +60,10 @@ def get_zao():
 zaoan = get_zao()
 
 print(zaoan)
+
+
+def get_random_color():
+    return "#%06x" % random.randint(0, 0xFFFFFF)
+
+
+print(get_random_color())

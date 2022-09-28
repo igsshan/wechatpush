@@ -1,4 +1,4 @@
-name: water
+name: demo
 on:
   schedule:
     - cron: '0 0 7 * * '
