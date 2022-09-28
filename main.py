@@ -44,12 +44,16 @@ def get_words():
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
 
+dayTime = today.strftime("%Y") + "年" + today.strftime("%m") + "月" + today.strftime("%d") + "日"
+week_list = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
+week = week_list[today.weekday()]
+dayWeek = dayTime + " " + week
 
 client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 todayTime, air, wea, temperature = get_weather()
-data = {"name": {"value": name}, "today": {"value": todayTime},
+data = {"name": {"value": name}, "today": {"value": dayWeek},
         "weather": {"value": wea},
         "temperature": {"value": temperature},
         "airQuality": {"value": air},
