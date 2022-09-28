@@ -1,7 +1,7 @@
 name: water
 on:
   schedule:
-    - cron: '0 0 7 * * '
+    - cron: '0 0 10,11,12,13,14,15,16,17,18,20 * * '
   workflow_dispatch:
 
 jobs:
@@ -20,14 +20,10 @@ jobs:
         with:
           python-version: '3.x'
           architecture: 'x64'
-      - run: pip install -r ./requirements.txt && python ./main.py
+      - run: pip install -r ./requirements.txt && python ./water.py
 
     env:
       APP_ID: ${{ secrets.APP_ID }}
       APP_SECRET: ${{ secrets.APP_SECRET }}
-      TEMPLATE_ID: ${{ secrets.TEMPLATE_ID }}
+      WATER_TEMPLATE_ID: ${{ secrets.WATER_TEMPLATE_ID }}
       USER_ID: ${{ secrets.USER_ID }}
-      START_DATE: ${{ secrets.START_DATE }}
-      BIRTHDAY: ${{ secrets.BIRTHDAY }}
-      CITY: ${{ secrets.CITY }}
-      NAME: ${{ secrets.NAME }}
