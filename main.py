@@ -6,7 +6,7 @@ import requests
 import os
 import random
 
-# today = datetime.now() + timedelta(days=1)
+today = datetime.now()
 start_date = os.environ['START_DATE']
 city = os.environ['CITY']
 birthday = os.environ['BIRTHDAY']
@@ -24,10 +24,8 @@ chunjieTime = "01-22"
 
 utc_time = datetime.strftime(datetime.now() - timedelta(hours=8), "%Y-%m-%d")
 beijing_time = datetime.strftime(datetime.now(), "%Y-%m-%d")
-if utc_time == beijing_time:
-    today = utc_time
-else:
-    today = beijing_time
+if utc_time != beijing_time:
+    today = datetime.now() + timedelta(hours=8)
 
 
 def get_weather():
